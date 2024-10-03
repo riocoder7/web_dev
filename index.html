@@ -3,12 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Web Development Landing Page</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --header-bg: #35424a;
+            --header-color: #ffffff;
+            --nav-bg: #333333;
+            --nav-color: #ffffff;
+            --services-bg: #f4f4f4;
+            --service-item-bg: #ffffff;
+        }
+
+        .dark-theme {
+            --bg-color: #333333;
+            --text-color: #ffffff;
+            --header-bg: #1a2126;
+            --header-color: #ffffff;
+            --nav-bg: #1a1a1a;
+            --nav-color: #ffffff;
+            --services-bg: #2a2a2a;
+            --service-item-bg: #404040;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: var(--header-bg);
+            color: var(--header-color);
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header h1 {
+            margin: 0;
+            text-align: center;
+        }
+        .showcase {
+            background: url('https://source.unsplash.com/random/1600x900/?webdevelopment') no-repeat center center/cover;
+            height: 400px;
+            color: #ffffff;
+            text-align: center;
+        }
+        .showcase h2 {
+            margin-top: 100px;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+        .showcase p {
+            font-size: 20px;
+        }
+        .services {
+            padding: 20px 0;
+            background: var(--services-bg);
+        }
+        .services h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .service-item {
+            background: var(--service-item-bg);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        @media(max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            .showcase h2 {
+                font-size: 40px;
+            }
+        }
+        /* New styles for navbar */
+        nav {
+            background-color: var(--nav-bg);
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .logo {
+            color: var(--nav-color);
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav li {
+            margin-left: 20px;
+        }
+        nav li a {
+            color: var(--nav-color);
+            text-decoration: none;
+        }
+        nav li a:hover {
+            color: #ddd;
+        }
+        /* Theme toggle button */
+        #theme-toggle {
+            background: none;
+            border: none;
+            color: var(--nav-color);
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-   <h1>   
-       
-       <h1> hellow world </h1>
-</h1> 
+    <nav>
+        <a href="#" class="logo">WebDevStudio</a>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button id="theme-toggle">Toggle Theme</button></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>Web Development Services</h1>
+        </div>
+    </header>
+
+    <section class="showcase">
+        <div class="container">
+            <h2>Welcome to Our Web Dev Studio</h2>
+            <p>We create stunning, responsive websites tailored to your needs</p>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-item">
+                <h3>Responsive Web Design</h3>
+                <p>We create websites that look great on all devices, from desktops to smartphones.</p>
+            </div>
+            <div class="service-item">
+                <h3>E-commerce Solutions</h3>
+                <p>Build your online store with our secure and scalable e-commerce platforms.</p>
+            </div>
+            <div class="service-item">
+                <h3>Custom Web Applications</h3>
+                <p>We develop tailored web applications to meet your specific business needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="display: flex; justify-content: center; align-items: center; height: 100px;">
+            <p style="text-align: center;">&copy; 2023 Web Development Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            themeToggle.textContent = body.classList.contains('dark-theme') ? 'Light Theme' : 'Dark Theme';
+        });
+    </script>
 </body>
 </html>
